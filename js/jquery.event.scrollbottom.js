@@ -36,7 +36,7 @@
 	
 	function setup(data, namespaces, eventHandle) {
 		var elem = jQuery(this),
-		    events = elem.data('events');
+		    events = elem.data('events') || elem.data('events', {});
 		
 		// Don't bind the scroll handler if it is already bound by the
 		// other scroll event.
