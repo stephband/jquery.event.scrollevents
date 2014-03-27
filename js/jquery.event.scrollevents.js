@@ -1,4 +1,4 @@
-// jquery.event.scrolltop
+// jquery.event.scrollevents
 // 
 // 0.4
 // 
