@@ -14,10 +14,14 @@
 		if (this === window) {
 			scrollTop = (document.documentElement.scrollTop || document.body.scrollTop);
 			scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			scrollLeft = (document.documentElement.scrollLeft || document.body.scrollLeft);
+			scrollWidth = document.documentElement.scrollWidth - document.documentElement.scrollWidth;
 		}
 		else {
 			scrollTop = this.scrollTop;
 			scrollHeight = this.scrollHeight - this.clientHeight;
+			scrollLeft = this.scrollLeft;
+			scrollWidth = this.scrollWidth - this.clientWidth;
 		}
 		
 		if (scrollTop <= 0) {
@@ -25,6 +29,12 @@
 		}
 		else if (scrollTop >= scrollHeight) {
 			e.type = "scrollbottom";
+		}
+		else if (scrollLeft <= 0) {
+			e.type = "scrollleft";
+		}
+		else if (scrollLeft >= scrollWidth) {
+			e.type = "scrollright";
 		}
 		else {
 			return;
