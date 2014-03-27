@@ -1,6 +1,6 @@
 // jquery.event.scrolltop
 // 
-// 0.3
+// 0.4
 // 
 // 'scrolltop' and 'scrollbottom' events fire when the user has reached the top
 // or bottom scroll limit.
@@ -9,7 +9,7 @@
 	
 	function scrollhandler(e) {
 		var elem = e.data,
-				scrollTop, scrollHeight;
+		    scrollTop, scrollHeight;
 		
 		if (this === window) {
 			scrollTop = (document.documentElement.scrollTop || document.body.scrollTop);
@@ -20,10 +20,10 @@
 			scrollHeight = this.scrollHeight - this.clientHeight;
 		}
 		
-		if (scrollTop === 0) {
+		if (scrollTop <= 0) {
 			e.type = "scrolltop";
 		}
-		else if (scrollTop === scrollHeight) {
+		else if (scrollTop >= scrollHeight) {
 			e.type = "scrollbottom";
 		}
 		else {
